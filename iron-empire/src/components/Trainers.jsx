@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import './Trainers.css';
+import trainer1 from '../assets/trainers/trainer1.jpg';
+import trainer2 from '../assets/trainers/trainer2.jpg';
+import trainer3 from '../assets/trainers/trainer3.jpg';
+import trainer4 from '../assets/trainers/trainer4.jpg';
 
 const trainers = [
   {
     id: 1,
     name: 'Alex Stone',
     role: 'Head Coach',
-    image: 'https://images.unsplash.com/photo-1567013127542-490d757e51fc?w=400&q=80',
+    image: trainer1 ,
     specialties: ['Powerlifting', 'Strength'],
     instagram: '#',
   },
@@ -14,7 +18,7 @@ const trainers = [
     id: 2,
     name: 'Marcus Reid',
     role: 'CrossFit Expert',
-    image: 'https://images.unsplash.com/photo-1594381898411-846e7d193883?w=400&q=80',
+    image: trainer2 ,
     specialties: ['CrossFit', 'HIIT'],
     instagram: '#',
   },
@@ -22,7 +26,7 @@ const trainers = [
     id: 3,
     name: 'Sarah Vance',
     role: 'Yoga & Mobility',
-    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&q=80',
+    image: trainer3,
     specialties: ['Yoga', 'Flexibility'],
     instagram: '#',
   },
@@ -30,7 +34,7 @@ const trainers = [
     id: 4,
     name: 'Jake Powell',
     role: 'Body Building Pro',
-    image: 'https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=400&q=80',
+    image: trainer4 ,
     specialties: ['Bodybuilding', 'Nutrition'],
     instagram: '#',
   },
