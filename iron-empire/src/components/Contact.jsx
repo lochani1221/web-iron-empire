@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './Contact.css';
 
+// Import your custom icons from your device
+import LocationIcon from '../assets/location.png';
+import EmailIcon from '../assets/email.png';
+import PhoneIcon from '../assets/phone.png';
+
 const initialForm = {
   fullName: '',
   email: '',
@@ -66,7 +71,6 @@ const Contact = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm(prev => ({ ...prev, [name]: value }));
-    // Clear error on change
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
@@ -77,7 +81,6 @@ const Contact = () => {
     if (!validate()) return;
 
     setLoading(true);
-    // Simulate API call
     setTimeout(() => {
       setLoading(false);
       setSubmitted(true);
@@ -86,9 +89,9 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: '📍', label: 'Location', value: '123 Main Street, Galle' },
-    { icon: '✉️', label: 'Email', value: 'ironemp@gmail.com' },
-    { icon: '📞', label: 'Phone', value: '+94 771234568' },
+    { icon: LocationIcon, label: 'Location', value: '123 Main Street, Galle' },
+    { icon: EmailIcon, label: 'Email', value: 'ironemp@gmail.com' },
+    { icon: PhoneIcon, label: 'Phone', value: '+94 771234568' },
   ];
 
   return (
@@ -110,7 +113,9 @@ const Contact = () => {
           <div className="contact-animate contact__info-list">
             {contactInfo.map((info) => (
               <div key={info.label} className="contact-info-item">
-                <div className="contact-info-icon">{info.icon}</div>
+                <div className="contact-info-icon">
+                  <img src={info.icon} alt={info.label} className="contact-icon-img" />
+                </div>
                 <div>
                   <span className="contact-info-label">{info.label}</span>
                   <span className="contact-info-value">{info.value}</span>
@@ -139,7 +144,6 @@ const Contact = () => {
             </div>
           ) : (
             <form className="contact__form" onSubmit={handleSubmit} noValidate>
-              {/* Full Name */}
               <div className={`form-group ${errors.fullName ? 'has-error' : ''}`}>
                 <label htmlFor="fullName" className="form-label">Full Name</label>
                 <input
@@ -156,7 +160,6 @@ const Contact = () => {
                 )}
               </div>
 
-              {/* Email */}
               <div className={`form-group ${errors.email ? 'has-error' : ''}`}>
                 <label htmlFor="email" className="form-label">E-mail Address</label>
                 <input
@@ -173,7 +176,6 @@ const Contact = () => {
                 )}
               </div>
 
-              {/* Interest */}
               <div className="form-group">
                 <label htmlFor="interest" className="form-label">Interested In</label>
                 <select
@@ -192,7 +194,6 @@ const Contact = () => {
                 </select>
               </div>
 
-              {/* Message */}
               <div className={`form-group ${errors.message ? 'has-error' : ''}`}>
                 <label htmlFor="message" className="form-label">Message</label>
                 <textarea
