@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import './About.css';
+import gymImage from '../assets/gym-image.jpg';
 
 const About = () => {
   useEffect(() => {
@@ -19,11 +20,11 @@ const About = () => {
         {/* Image side */}
         <div className="about-animate about__image-side">
           <div className="about__image-frame">
-            <img
-              src="https://images.unsplash.com/photo-1581009146145-b5ef050c2e1e?w=700&q=80"
-              alt="Iron Empire Gym Interior"
-              className="about__main-img"
-            />
+           <img
+  src={gymImage}
+  alt="Iron Empire Gym Interior"
+  className="about__main-img"
+/>
             <div className="about__img-badge">
               <span className="badge-year">EST</span>
               <span className="badge-num">2015</span>
@@ -33,21 +34,17 @@ const About = () => {
 
         {/* Text side */}
         <div className="about__text-side">
-          <span className="section-label about-animate">Who We Are</span>
+          <span className="section-label about-animate">WHO WE ARE</span>
           <h2 className="section-title about-animate about__heading">
             MORE THAN JUST A GYM. <span className="text-gold">WE ARE A MOVEMENT.</span>
           </h2>
 
           <p className="about-animate about__body">
-            Founded in 2015, Iron Empire was built on a simple principle —
-            strength is for everyone. We've created a space where beginners
-            and elite athletes can push their limits.
+            Founded in 2015, Iron Empire was built on a simple principle: strength is for everyone. We've created a space where beginners and pro athletes alike can push their limits.
           </p>
 
           <p className="about-animate about__body">
-            Our facility features state-of-the-art equipment, a dedicated
-            powerlifting zone, and a cardio theater designed to keep you
-            moving. But our true strength lies in our community.
+            Our facility features state-of-the-art Hammer Strength equipment, a dedicated powerlifting zone, and a cardio theater designed to keep you moving. But our true strength lies in our community.
           </p>
 
           <div className="about-animate about__stats-grid">
