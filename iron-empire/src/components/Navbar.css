@@ -1,20 +1,22 @@
+/* Navbar base */
 .navbar {
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
-  padding: 20px 0;
+  padding: 16px 0;
+  background: #000; /* solid black background */
   transition: all 0.4s ease;
+  border-bottom: 1px solid rgba(212,160,23,0.2);
 }
 
 .navbar--scrolled {
-  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
   padding: 12px 0;
-  border-bottom: 1px solid rgba(212, 160, 23, 0.2);
 }
 
+/* Inner container */
 .navbar__inner {
   display: flex;
   align-items: center;
@@ -30,21 +32,16 @@
 }
 
 .logo-icon {
-  font-size: 1.4rem;
+  font-size: 1.6rem; /* slightly bigger */
   color: var(--gold);
   animation: spin 8s linear infinite;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
-}
-
 .logo-text {
   font-family: var(--font-display);
-  font-size: 1.5rem;
+  font-size: 1.7rem; /* bigger text */
   letter-spacing: 2px;
-  color: var(--white);
+  color: #fff;
 }
 
 .logo-accent {
@@ -55,18 +52,17 @@
 .navbar__links {
   display: flex;
   align-items: center;
-  gap: 36px;
-  list-style: none;
+  gap: 42px; /* increase spacing */
 }
 
 .navbar__link {
   font-family: var(--font-condensed);
-  font-size: 0.9rem;
+  font-size: 1rem; /* bigger font */
   font-weight: 600;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--gray-light);
-  transition: color var(--transition);
+  transition: color 0.3s;
   position: relative;
 }
 
@@ -78,7 +74,7 @@
   width: 0;
   height: 2px;
   background: var(--gold);
-  transition: width var(--transition);
+  transition: width 0.3s;
 }
 
 .navbar__link:hover {
@@ -87,6 +83,38 @@
 
 .navbar__link:hover::after {
   width: 100%;
+}
+
+/* Right section (CTA + Dark Mode) */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Dark Mode Toggle Button */
+.btn-toggle-mode {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 6px 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.btn-toggle-mode:hover {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #000;
+}
+
+/* Buttons */
+.btn-primary.navbar__cta {
+  padding: 12px 26px;
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 /* Hamburger */
@@ -104,7 +132,7 @@
   display: block;
   width: 26px;
   height: 2px;
-  background: var(--white);
+  background: #fff;
   transition: all 0.3s ease;
   transform-origin: center;
 }
@@ -125,8 +153,8 @@
   flex-direction: column;
   gap: 4px;
   padding: 16px 24px 24px;
-  background: rgba(10, 10, 10, 0.98);
-  border-top: 1px solid rgba(212, 160, 23, 0.2);
+  background: rgba(10,10,10,0.98);
+  border-top: 1px solid rgba(212,160,23,0.2);
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.4s ease;
@@ -136,26 +164,38 @@
   max-height: 400px;
 }
 
+/* Navbar links - desktop */
+.navbar__link {
+  font-size: 1.2rem; /* increased from 1rem */
+  font-weight: 700;
+}
+
+/* Navbar links - mobile menu */
 .navbar__mobile-link {
-  font-family: var(--font-condensed);
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gray-light);
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  transition: color var(--transition);
+  font-size: 1.4rem; /* bigger on mobile */
+  font-weight: 700;
+}
+
+/* Dark Mode Toggle Button */
+.btn-toggle-mode {
+  font-size: 1.2rem;   /* bigger text */
+  padding: 10px 16px;  /* larger clickable area */
+  border-radius: 6px;
 }
 
 .navbar__mobile-link:hover {
   color: var(--gold);
 }
 
+.navbar__right {
+  gap: 16px; /* slightly more space between Join Now and toggle button */
+}
+
 /* Responsive */
 @media (max-width: 900px) {
   .navbar__links,
-  .navbar__cta {
+  .navbar__cta,
+  .navbar__right a {
     display: none;
   }
   .navbar__hamburger {
