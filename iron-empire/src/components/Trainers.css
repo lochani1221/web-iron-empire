@@ -17,12 +17,15 @@
 .trainer-card {
   position: relative;
   cursor: pointer;
+  border-radius: 16px; 
+  overflow: hidden; 
 }
 
 .trainer-card__photo {
   position: relative;
   overflow: hidden;
   height: 380px;
+  border-radius: 16px; /* Round the photo corners */
 }
 
 .trainer-card__photo img {
@@ -32,6 +35,7 @@
   object-position: top;
   transition: transform 0.5s ease;
   filter: grayscale(40%);
+  border-radius: 16px; /* Round image itself */
 }
 
 .trainer-card:hover .trainer-card__photo img {
@@ -49,7 +53,9 @@
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
+  border-radius: 16px; /* Round overlay corners to match */
 }
+
 
 .trainer-card:hover .trainer-card__overlay {
   opacity: 1;
@@ -71,7 +77,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 1px;
+  border-radius: 12px; /* Rounded tags */
 }
 
 /* Bottom gold bar */
@@ -93,6 +99,8 @@
 /* Info */
 .trainer-card__info {
   padding: 16px 4px 8px;
+  border-radius: 0 0 16px 16px; /* Round only bottom corners */
+  background: var(--dark-2); /* optional: match card bg */
 }
 
 .trainer-card__name {
