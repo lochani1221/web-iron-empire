@@ -21,6 +21,7 @@
   padding: 36px 32px;
   position: relative;
   transition: transform 0.3s ease, border-color 0.3s ease;
+  border-radius: 16px; /* Added rounded corners */
 }
 
 .plan-card:hover {
@@ -53,6 +54,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 6px 20px;
+  border-radius: 12px; /* Rounded badge */
 }
 
 /* Header */
@@ -60,6 +62,7 @@
   margin-bottom: 32px;
   padding-bottom: 28px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  border-radius: 12px; /* optional: smooth header edges */
 }
 
 .plan-card__name {
@@ -108,6 +111,9 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+  border-radius: 12px; /* optional: smooth list container */
+  padding: 8px; /* optional: adds spacing inside rounded container */
+  background: rgba(255,255,255,0.02); /* subtle background for curved effect */
 }
 
 .plan-feature {
@@ -133,7 +139,7 @@
   justify-content: center;
   width: 20px;
   height: 20px;
-  border-radius: 50%;
+  border-radius: 50%; /* already circular */
   font-size: 0.7rem;
   font-weight: 700;
   flex-shrink: 0;
@@ -158,7 +164,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  border-radius: 2px;
+  border-radius: 12px; /* Rounded button */
   transition: all var(--transition);
   cursor: pointer;
 }
