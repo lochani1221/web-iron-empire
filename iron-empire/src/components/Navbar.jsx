@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
- 
+
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
- 
+  const [darkMode, setDarkMode] = useState(false);
+
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
- 
+
   const navLinks = [
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
@@ -18,13 +19,18 @@ const Navbar = () => {
     { label: 'Trainers', href: '#trainers' },
     { label: 'Plans', href: '#plans' },
   ];
- 
+
   const handleNavClick = (href) => {
     setMenuOpen(false);
     const el = document.querySelector(href);
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
- 
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+    document.documentElement.classList.toggle('dark-mode', !darkMode);
+  };
+
   return (
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
@@ -33,7 +39,7 @@ const Navbar = () => {
           <span className="logo-icon">⚙</span>
           <span className="logo-text">IRON<span className="logo-accent">EMPIRE</span></span>
         </a>
- 
+
         {/* Desktop Links */}
         <ul className="navbar__links">
           {navLinks.map((link) => (
@@ -49,16 +55,25 @@ const Navbar = () => {
           ))}
         </ul>
 
-        
-        {/* CTA */}
-        <a
-          href="#contact"
-          className="btn-primary navbar__cta"
-          onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
-        >
-          Join Now
-        </a>
- 
+        {/* Right Side Buttons */}
+        <div className="navbar__right">
+          <a
+            href="#contact"
+            className="btn-primary navbar__cta"
+            onClick={(e) => { e.preventDefault(); handleNavClick('#contact'); }}
+          >
+            Join Now
+          </a>
+
+          <button
+            className="btn-toggle-mode"
+            onClick={toggleDarkMode}
+            aria-label="Toggle Dark Mode"
+          >
+            {darkMode ? '☀️' : '🌙'}
+          </button>
+        </div>
+
         {/* Hamburger */}
         <button
           className={`navbar__hamburger ${menuOpen ? 'open' : ''}`}
@@ -68,7 +83,7 @@ const Navbar = () => {
           <span /><span /><span />
         </button>
       </div>
- 
+
       {/* Mobile Menu */}
       <div className={`navbar__mobile ${menuOpen ? 'navbar__mobile--open' : ''}`}>
         {navLinks.map((link) => (
@@ -93,5 +108,5 @@ const Navbar = () => {
     </nav>
   );
 };
- 
+
 export default Navbar;
