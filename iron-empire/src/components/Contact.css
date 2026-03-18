@@ -1,6 +1,8 @@
 .contact {
-  background: var(--dark);
+  background: #18140b; /* New background color */
+  overflow: hidden;
 }
+
 
 .contact__inner {
   display: grid;
@@ -53,7 +55,7 @@
 
 /* Form */
 .contact__form-wrap {
-  background: var(--dark-2);
+  background: var(--black);
   border: 1px solid rgba(255,255,255,0.06);
   padding: 40px;
 }

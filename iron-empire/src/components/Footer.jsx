@@ -101,12 +101,7 @@ const Footer = () => {
 
       </div>
 
-      <div className="footer__bottom">
-        <div className="container footer__bottom-inner">
-          <p>© {new Date().getFullYear()} Iron Empire. All rights reserved.</p>
-          <p className="footer__bottom-tagline">Forged with 💪 for champions</p>
-        </div>
-      </div>
+     
     </footer>
   );
 };

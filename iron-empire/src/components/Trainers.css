@@ -1,5 +1,7 @@
-.trainers {
-  background: var(--dark);
+
+.trainers  {
+  background: #17140b; /* New background color */
+  overflow: hidden;
 }
 
 .trainers__header {

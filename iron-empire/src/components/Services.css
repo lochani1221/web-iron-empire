@@ -20,6 +20,7 @@
   overflow: hidden;
   transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  border-radius: 16px; /* Rounded corners for the whole card */
 }
 
 .service-card:hover {
@@ -42,7 +43,7 @@
   letter-spacing: 2px;
   text-transform: uppercase;
   padding: 5px 12px;
-  border-radius: 1px;
+  border-radius: 12px; /* Rounded tag */
 }
 
 /* Image */
@@ -50,6 +51,7 @@
   position: relative;
   overflow: hidden;
   height: 220px;
+  border-radius: 16px 16px 0 0; /* Round top corners */
 }
 
 .service-card__image img {
@@ -58,7 +60,9 @@
   object-fit: cover;
   transition: transform 0.5s ease;
   filter: grayscale(30%);
+  border-radius: 16px 16px 0 0; /* Match container top corners */
 }
+
 
 .service-card:hover .service-card__image img {
   transform: scale(1.08);
@@ -79,11 +83,13 @@
   z-index: 2;
   font-size: 1.8rem;
   filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+  border-radius: 50%; /* optional: if you want circular icon background */
 }
 
 /* Body */
 .service-card__body {
   padding: 28px 28px 32px;
+  border-radius: 0 0 16px 16px; /* Round bottom corners */
 }
 
 .service-card__title {

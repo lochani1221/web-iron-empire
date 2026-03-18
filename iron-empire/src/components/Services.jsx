@@ -43,6 +43,7 @@ const Services = () => {
     document.querySelectorAll('.service-animate').forEach(el => observer.observe(el));
     return () => observer.disconnect();
   }, []);
+  
 
   return (
     <section id="services" className="services">
