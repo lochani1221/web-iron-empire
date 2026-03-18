@@ -1,5 +1,9 @@
 import React, { useEffect } from 'react';
 import './Services.css';
+import services1 from '../assets/services/services1.jpg';
+import services2 from '../assets/services/services2.jpg';
+import services3 from '../assets/services/services3.jpg';
+
 
 const services = [
   {
@@ -7,8 +11,7 @@ const services = [
     title: 'Personal Training',
     description:
       'One-on-one coaching tailored to your specific goals, whether it\'s weight loss, muscle gain, or athletic performance.',
-    image: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80',
-    icon: '💪',
+    image: services1,
     tag: 'Most Popular',
   },
   {
@@ -16,8 +19,7 @@ const services = [
     title: 'Cardio & HIIT',
     description:
       'High-energy classes designed to burn calories and boost endurance. From spin classes to intense circuit training.',
-    image: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=600&q=80',
-    icon: '🔥',
+    image: services2 ,
     tag: null,
   },
   {
@@ -25,8 +27,7 @@ const services = [
     title: 'Strength Training',
     description:
       'Free weights, power racks, and resistance machines. Everything you need to build raw power and muscle mass.',
-    image: 'https://images.unsplash.com/photo-1534367610401-9f5ed68180aa?w=600&q=80',
-    icon: '🏋️',
+    image: services3 ,
     tag: null,
   },
 ];
