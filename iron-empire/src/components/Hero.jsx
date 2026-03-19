@@ -33,23 +33,24 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="hero__content">
+ <div className="hero__content">
         <div className="hero__text">
 
-          <span className="hero-animate hero-badge">
+          <span className="hero-animate hero-badge" style={{ transitionDelay: '0.1s' }}>
             <span className="badge-dot" /> Elite Fitness & Training
           </span>
 
-          <h1 className="hero-animate hero__title">
+          <h1 className="hero-animate hero__title" style={{ transitionDelay: '0.3s' }}>
             FORGE YOUR <span className="hero__title-accent">LEGACY</span>
           </h1>
 
-          <p className="hero-animate hero__subtitle">
-            Transform your body and mind with elite equipment, expert trainers,
-            and a community driven by strength.
+          <p className="hero-animate hero__subtitle" style={{ transitionDelay: '0.5s' }}>
+            Unleash your full potential with state-of-the-art equipment, world-class trainers,
+             personalized programs, and a supportive community dedicated to helping you achieve strength, 
+             endurance, and confidence beyond your limits..
           </p>
 
-          <div className="hero-animate hero__cta-group">
+          <div className="hero-animate hero__cta-group" style={{ transitionDelay: '0.7s' }}>
             <button
               className="btn-primary"
               onClick={() => scrollToSection('#contact')}

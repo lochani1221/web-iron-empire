@@ -1,5 +1,6 @@
 import React from 'react';
 import './Footer.css';
+import logo from '../assets/logo.png';
 
 const Footer = () => {
   const scrollTo = (id) => {
@@ -41,10 +42,10 @@ const Footer = () => {
 
         {/* Brand */}
         <div className="footer__brand">
-          <div className="footer__logo">
-            <span className="footer__logo-icon">⚙</span>
-            IRON<span className="footer__logo-accent">EMPIRE</span>
-          </div>
+         <div className="footer__logo">
+          <img src={logo} alt="Logo" className="footer__logo-image" />
+          IRON<span className="footer__logo-accent">EMPIRE</span>
+        </div>
           <p className="footer__tagline">
             Building stronger bodies and minds since 2015. Join the empire today.
           </p>
