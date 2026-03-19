@@ -1,6 +1,6 @@
 
 .trainers  {
-  background: #17140b; /* New background color */
+  background: #17140b; 
   overflow: hidden;
 }
 
@@ -27,7 +27,7 @@
   position: relative;
   overflow: hidden;
   height: 380px;
-  border-radius: 16px; /* Round the photo corners */
+  border-radius: 16px;
 }
 
 .trainer-card__photo img {
@@ -37,7 +37,7 @@
   object-position: top;
   transition: transform 0.5s ease;
   filter: grayscale(40%);
-  border-radius: 16px; /* Round image itself */
+  border-radius: 16px; 
 }
 
 .trainer-card:hover .trainer-card__photo img {
@@ -55,7 +55,7 @@
   padding: 20px;
   opacity: 0;
   transition: opacity 0.3s ease;
-  border-radius: 16px; /* Round overlay corners to match */
+  border-radius: 16px; 
 }
 
 
@@ -79,7 +79,7 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 12px; /* Rounded tags */
+  border-radius: 12px;
 }
 
 /* Bottom gold bar */
@@ -101,8 +101,8 @@
 /* Info */
 .trainer-card__info {
   padding: 16px 4px 8px;
-  border-radius: 0 0 16px 16px; /* Round only bottom corners */
-  background: var(--dark-2); /* optional: match card bg */
+  border-radius: 0 0 16px 16px; 
+  background: var(--dark-2); 
 }
 
 .trainer-card__name {
@@ -138,6 +138,32 @@
 .trainer-animate.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Scroll Animations: right to left */
+.trainer-animate {
+  opacity: 0;
+  transform: translateX(40px); /* start off to the right */
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.trainer-animate.visible {
+  opacity: 1;
+  transform: translateX(0); /* slide to natural position */
+}
+
+/* Optional: stagger animation for multiple cards */
+.trainer-animate:nth-child(1) {
+  transition-delay: 0.1s;
+}
+.trainer-animate:nth-child(2) {
+  transition-delay: 0.2s;
+}
+.trainer-animate:nth-child(3) {
+  transition-delay: 0.3s;
+}
+.trainer-animate:nth-child(4) {
+  transition-delay: 0.4s;
 }
 
 /* Responsive */

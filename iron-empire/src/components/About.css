@@ -1,13 +1,35 @@
+/* Container & Background */
 .about {
-   background: #17140b; /* New background color */
-  overflow: hidden;
+  inset: 0;
+  background:
+    linear-gradient(to right, rgba(10,10,10,0.85) 40%, rgba(10,10,10,0.4) 100%),
+    url('../assets/about.jpg') no-repeat;
+
+   background-size: cover;
+  background-position: center top;
+  animation: zoomBg 10s ease-in-out infinite alternate;
 }
 
+
+
+/* Optional subtle background texture */
+.about::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../assets/hero-bg1.jpg') center/cover no-repeat;
+  opacity: 0.03;
+  pointer-events: none;
+  border-radius: 30px; 
+}
+
+/* Grid layout */
 .about__inner {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: center;
+  position: relative;
 }
 
 /* Image side */
@@ -17,22 +39,13 @@
 
 .about__image-frame {
   position: relative;
+  border-radius: 25px; 
+  overflow: visible; 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.4s ease;
 }
 
-.about__main-img {
-  width: 100%;
-  height: 560px;
-  object-fit: cover;
-  filter: grayscale(100%) contrast(1.05); /* start fully grayscale */
-  transition: filter 0.4s ease, transform 0.4s ease;
-}
-
-.about__image-frame:hover .about__main-img {
-  filter: grayscale(0%) contrast(1.1); /* color restored on hover */
-  transform: scale(1.02); /* optional: slight zoom on hover */
-}
-
-/* Gold border accent */
+/* Gold border accent (keep intact) */
 .about__image-frame::before {
   content: '';
   position: absolute;
@@ -43,6 +56,7 @@
   border: 2px solid var(--gold);
   z-index: 0;
   pointer-events: none;
+  border-radius: 25px;
 }
 
 .about__image-frame::after {
@@ -55,14 +69,27 @@
   background: var(--gold);
   opacity: 0.07;
   z-index: 0;
+  border-radius: 25px;
 }
 
+/* Main image inside the frame */
 .about__main-img {
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.4s ease, transform 0.4s ease;
+  border-radius: 25px;
   position: relative;
   z-index: 1;
 }
 
-/* Year badge */
+.about__image-frame:hover .about__main-img {
+  filter: grayscale(0%) contrast(1.1);
+  transform: scale(1.03);
+}
+
+/* Badge */
 .about__img-badge {
   position: absolute;
   bottom: -20px;
@@ -75,8 +102,11 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 2px;
+  border-radius: 16px; /* curve badge */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
+
+
 
 .badge-year {
   font-family: var(--font-condensed);
@@ -101,17 +131,17 @@
 .section-label {
   text-transform: uppercase;
   font-family: var(--font-condensed);
-  font-size: 2rem; 
-  letter-spacing: 3px; 
+  font-size: 2rem;
+  letter-spacing: 3px;
   color: var(--gold);
   margin-bottom: 12px;
   display: inline-block;
 }
 
 .about__heading {
-  margin-bottom: 24px;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
   line-height: 1.1;
-  font-size: 3rem; 
 }
 
 .text-gold {
@@ -120,37 +150,38 @@
 
 .about__body {
   color: var(--gray-light);
-  font-size: 1.05rem; 
+  font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 20px;
 }
 
-/* Stats grid */
+/* Stats Grid */
 .about__stats-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1px;
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.06);
-  margin-top: 40px;
+  gap: 15px;
+  margin-top: 30px;
 }
 
 .about__stat-box {
-  background: var(--dark);
-  padding: 24px 20px;
+  background: rgba(20, 18, 12, 0.6);
+  padding: 20px;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 4px;
-  transition: background var(--transition);
+  border-radius: 15px; 
+  border: 1px solid var(--gold); 
+  transition: all 0.3s ease;
 }
 
 .about__stat-box:hover {
-  background: var(--dark-2);
+  background: rgba(212,160,23,0.15);
 }
 
 .about__stat-value {
   font-family: var(--font-display);
-  font-size: 2rem;
+  font-size: 1.8rem;
   color: var(--gold);
   line-height: 1;
 }
@@ -158,16 +189,15 @@
 .about__stat-label {
   font-family: var(--font-condensed);
   font-size: 0.8rem;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--gray);
+  letter-spacing: 1.5px;
+  color: #aaa;
 }
 
-/* Animations */
+/* Scroll Animations */
 .about-animate {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
 }
 
 .about-animate.visible {
@@ -175,12 +205,18 @@
   transform: translateY(0);
 }
 
+/* Image side slides from left */
 .about__image-side.about-animate {
-  transform: translateX(-30px);
+  transform: translateX(-40px);
 }
 
 .about__image-side.about-animate.visible {
   transform: translateX(0);
+}
+
+/* Hover subtle lift for image frame */
+.about__image-frame:hover {
+  transform: translateY(-5px);
 }
 
 /* Responsive */
@@ -191,14 +227,15 @@
   }
 
   .about__text-side {
-    padding-left: 0;
-  }
-
-  .about__image-frame::before {
-    display: none;
+    padding-left: 20px;
+    padding-right: 20px;
   }
 
   .about__main-img {
     height: 360px;
+  }
+
+  .about__stats-grid {
+    grid-template-columns: 1fr 1fr;
   }
 }

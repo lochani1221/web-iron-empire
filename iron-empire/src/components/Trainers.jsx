@@ -10,7 +10,7 @@ const trainers = [
     id: 1,
     name: 'Alex Stone',
     role: 'Head Coach',
-    image: trainer1 ,
+    image: trainer1,
     specialties: ['Powerlifting', 'Strength'],
     instagram: '#',
   },
@@ -18,7 +18,7 @@ const trainers = [
     id: 2,
     name: 'Marcus Reid',
     role: 'CrossFit Expert',
-    image: trainer2 ,
+    image: trainer2,
     specialties: ['CrossFit', 'HIIT'],
     instagram: '#',
   },
@@ -34,7 +34,7 @@ const trainers = [
     id: 4,
     name: 'Jake Powell',
     role: 'Body Building Pro',
-    image: trainer4 ,
+    image: trainer4,
     specialties: ['Bodybuilding', 'Nutrition'],
     instagram: '#',
   },
@@ -43,36 +43,48 @@ const trainers = [
 const Trainers = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => entries.forEach(e => {
-        if (e.isIntersecting) e.target.classList.add('visible');
-      }),
-      { threshold: 0.1 }
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      },
+      { threshold: 0.2 }
     );
-    document.querySelectorAll('.trainer-animate').forEach(el => observer.observe(el));
+
+    document.querySelectorAll('.trainer-animate').forEach((el) => observer.observe(el));
+
     return () => observer.disconnect();
   }, []);
 
   return (
     <section id="trainers" className="trainers">
       <div className="container">
+        {/* Section Header */}
         <div className="trainers__header trainer-animate">
           <span className="section-label">Expert Team</span>
-          <h2 className="section-title">MEET THE <span className="text-gold">ELITE</span></h2>
+          <h2 className="section-title">
+            MEET THE <span className="text-gold">ELITE</span>
+          </h2>
         </div>
 
+        {/* Trainers Grid */}
         <div className="trainers__grid">
           {trainers.map((trainer, i) => (
             <div
               key={trainer.id}
               className="trainer-card trainer-animate"
-              style={{ transitionDelay: `${i * 0.12}s` }}
+              style={{
+                transitionDelay: `${i * 0.15}s`, // stagger effect
+              }}
             >
               <div className="trainer-card__photo">
                 <img src={trainer.image} alt={trainer.name} />
                 <div className="trainer-card__overlay">
                   <div className="trainer-card__specialties">
-                    {trainer.specialties.map(s => (
-                      <span key={s} className="specialty-tag">{s}</span>
+                    {trainer.specialties.map((s) => (
+                      <span key={s} className="specialty-tag">
+                        {s}
+                      </span>
                     ))}
                   </div>
                 </div>

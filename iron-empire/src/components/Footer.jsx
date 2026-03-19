@@ -41,22 +41,34 @@ const Footer = () => {
       <div className="container footer__inner">
 
         {/* Brand */}
-        <div className="footer__brand">
-         <div className="footer__logo">
-          <img src={logo} alt="Logo" className="footer__logo-image" />
-          IRON<span className="footer__logo-accent">EMPIRE</span>
-        </div>
-          <p className="footer__tagline">
-            Building stronger bodies and minds since 2015. Join the empire today.
-          </p>
-          <div className="footer__socials">
-            {socials.map((s) => (
-              <a key={s.title} href="#!" className="social-icon" title={s.title} aria-label={s.title}>
-                {s.label}
-              </a>
-            ))}
-          </div>
-        </div>
+       <div className="footer__brand">
+
+  <div className="footer__logo">
+    <img src={logo} alt="Logo" className="footer__logo-image" />
+    IRON<span className="footer__logo-accent">EMPIRE</span>
+  </div>
+
+  <p className="footer__tagline">
+    Building stronger bodies and minds since 2015. Join the empire today.
+  </p>
+
+  <div className="footer__socials">
+    {socials.map((s) => (
+      <a key={s.title} href="#!" className="social-icon" title={s.title}>
+        {s.label}
+      </a>
+    ))}
+  </div>
+
+ 
+ <div className="footer__map">
+  <iframe
+    src="https://maps.google.com/maps?q=Galle%20Sri%20Lanka&t=&z=13&ie=UTF8&iwloc=&output=embed"
+    loading="lazy"
+  ></iframe>
+</div>
+
+</div>
 
         {/* Quick Links */}
         <div className="footer__col">
@@ -102,7 +114,9 @@ const Footer = () => {
 
       </div>
 
-     
+    
+
+
     </footer>
   );
 };
