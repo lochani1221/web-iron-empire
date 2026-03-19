@@ -67,6 +67,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
+  border-radius: 16px;
 }
 
 .specialty-tag {
@@ -79,7 +80,8 @@
   letter-spacing: 1.5px;
   text-transform: uppercase;
   padding: 4px 10px;
-  border-radius: 12px;
+ 
+  border-radius: 16px;
 }
 
 /* Bottom gold bar */
@@ -101,7 +103,7 @@
 /* Info */
 .trainer-card__info {
   padding: 16px 4px 8px;
-  border-radius: 0 0 16px 16px; 
+  border-radius: 16px;
   background: var(--dark-2); 
 }
 
