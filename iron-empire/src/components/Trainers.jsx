@@ -41,12 +41,7 @@ const Trainers = () => {
   const [search, setSearch] = useState('');
   const [filteredTrainers, setFilteredTrainers] = useState(trainersData);
 
-  useEffect(() => {
-  fetch('https://myapi.com/trainers') // replace with your real API URL
-    .then(res => res.json())
-    .then(data => setFilteredTrainers(data))
-    .catch(err => console.error('Error fetching trainers:', err));
-}, []);
+  
 
   useEffect(() => {
     const observer = new IntersectionObserver(
