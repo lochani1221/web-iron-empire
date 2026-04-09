@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios'; //for API calls
 import './Contact.css';
 
 // Import your custom icons from your device
@@ -7,6 +7,7 @@ import LocationIcon from '../assets/location.png';
 import EmailIcon from '../assets/email.png';
 import PhoneIcon from '../assets/phone.png';
 
+//stores default form values
 const initialForm = {
   fullName: '',
   email: '',
@@ -14,6 +15,7 @@ const initialForm = {
   message: '',
 };
 
+//stores validation error messages
 const initialErrors = {
   fullName: '',
   email: '',
@@ -21,11 +23,12 @@ const initialErrors = {
 };
 
 const Contact = () => {
-  const [form, setForm] = useState(initialForm);
+  const [form, setForm] = useState(initialForm);        //form holds the input values, and setForm is used to update them when the user types.
   const [errors, setErrors] = useState(initialErrors);
-  const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [submitted, setSubmitted] = useState(false); //controls success message display
+  const [loading, setLoading] = useState(false); //show a loading state during submission
 
+  //trigger animations when elements come into view
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => entries.forEach(e => {
@@ -52,7 +55,7 @@ const Contact = () => {
     if (!form.email.trim()) {
       newErrors.email = 'Email is required.';
       valid = false;
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {  // validate email using email regex pattern
       newErrors.email = 'Please enter a valid email address.';
       valid = false;
     }
@@ -71,21 +74,21 @@ const Contact = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm(prev => ({ ...prev, [name]: value })); //Clears error when user starts typing
     if (errors[name]) {
       setErrors(prev => ({ ...prev, [name]: '' }));
     }
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    e.preventDefault();        //When the form is submitted,  run validation.
     if (!validate()) return;
 
     setLoading(true);
-    setTimeout(() => {
+    setTimeout(() => {         //simulating the API call using setTimeout
       setLoading(false);
       setSubmitted(true);
-      setForm(initialForm);
+      setForm(initialForm);   //After submission, the form resets.
     }, 1500);
   };
 
@@ -96,7 +99,7 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="contact">
+    <section id="contact" className="contact">    {/*layout*/}
       <div className="container contact__inner">
         {/* Left */}
         <div className="contact__left">
@@ -112,7 +115,7 @@ const Contact = () => {
           </div>
 
           <div className="contact-animate contact__info-list">
-            {contactInfo.map((info) => (
+            {contactInfo.map((info) => (                               {/*Using map to dynamically render UI elements from data*/}
               <div key={info.label} className="contact-info-item">
                 <div className="contact-info-icon">
                   <img src={info.icon} alt={info.label} className="contact-icon-img" />
@@ -128,7 +131,7 @@ const Contact = () => {
 
         {/* Right - Form */}
         <div className="contact-animate contact__form-wrap">
-          {submitted ? (
+          {submitted ? (                                       {/*shows success message after submission, otherwise shows form.*/}
             <div className="contact__success">
               <div className="success-icon">✓</div>
               <h3 className="success-title">Message Sent!</h3>
